@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        /* Define default vars */
+        --main: #f1f1f1;
+        --alt: #e6e6e6;
+        --font: #353535;
+
+        color: var(--font);
+        font-family: Poppins, Arial, sans-serif;
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+        -ms-text-size-adjust: 100%;
+        -moz-osx-font-smoothing: grayscale;
+        font-synthesis: none !important;
+        overflow-x: hidden;
+
+        svg {
+            fill: none;
+        }
+
+        svg:hover {
+            fill: var(--font);
+        }
+
+        svg * {
+            stroke: var(--font);
+        }
+    }
+
+    html.dark {
+        /* Vars for dark mode */
+        --main: #1d2021;
+        --alt: #161819;
+        --font: #fefefe;
+    }
+
+    /* Scrollbar style */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--font);
+        border-radius: 1rem;
+    }
+}
