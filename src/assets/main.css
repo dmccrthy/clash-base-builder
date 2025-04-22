@@ -9,6 +9,7 @@
         /* Define default vars */
         --main: #f1f1f1;
         --alt: #e6e6e6;
+        --highlight: #fafafa;
         --font: #353535;
 
         color: var(--font);
@@ -37,6 +38,7 @@
         /* Vars for dark mode */
         --main: #1d2021;
         --alt: #161819;
+        --highlight: #1e1e1e;
         --font: #fefefe;
     }
 

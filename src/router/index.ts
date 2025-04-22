@@ -9,6 +9,11 @@ const router = createRouter({
             component: () => import('../views/HomePage.vue'),
         },
         {
+            path: '/builder-base',
+            name: 'builder-base',
+            component: () => import('../views/BuilderPage.vue'),
+        },
+        {
             path: '/about',
             name: 'about',
             // route level code-splitting
