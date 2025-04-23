@@ -8,7 +8,7 @@
             v-for="town in Data"
             :key="town.level"
             :class="[
-                'flex flex-col items-center my-4 p-4 rounded-2xl hover:cursor-pointer',
+                'flex flex-col items-center my-4 p-4 rounded-2xl hover:cursor-pointer hover:bg-[var(--main)]',
                 { selected: town.level === currTownHall },
             ]"
             :id="'townhall-' + town.level"
@@ -29,20 +29,26 @@ import { onMounted, ref } from 'vue'
 import Data from '@/assets/data.json'
 
 const currTownHall = ref(1)
+const emit = defineEmits(['update-townhall'])
 
-// On pageload set default townhall
-// onMounted(() => {
-//     if (localStorage.getItem('town-hall')) {
-//     } else {
-//         currTownHall.value = 1
-//     }
-// })
+// On pageload set default townhall if present
+onMounted(() => {
+    if (localStorage.getItem('town-hall')) {
+        selectTownHall(Number(localStorage.getItem('town-hall')))
+    }
+})
 
+/**
+ * Update/emit townhall object
+ * @param town Townhall object to set
+ */
 function selectTownHall(town: number): void {
     currTownHall.value = town
-}
+    localStorage.setItem('town-hall', `${town}`)
 
-function updateSelected(): void {}
+    // Here we emit the JSON object for the townhall for use on the map
+    emit('update-townhall', Data[town - 1])
+}
 </script>
 
 <style lang="css">

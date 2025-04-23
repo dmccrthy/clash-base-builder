@@ -2,13 +2,10 @@
   {
     "level": 1,
     "image": "th1.webp",
-    "buildings": {
-      "walls": {
-        "count": 1,
-        "level": 1,
-        "path": ""
-      }
-    }
+    "buildings": [
+      { "name": "walls", "count": 1, "level": 1 },
+      { "name": "cannon", "count": 1, "level": 1 }
+    ]
   },
   {
     "level": 2,

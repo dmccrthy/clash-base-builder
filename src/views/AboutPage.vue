@@ -5,5 +5,10 @@
             The Clash of Clans Base Builder is a side project of mine which is designed to allow you
             to create mockups of bases from the comfort of your web browser.
         </p>
+        <h1 class="text-2xl font-medium">Credits:</h1>
+        <p>
+            The Clash of Clans Base Builder is a side project of mine which is designed to allow you
+            to create mockups of bases from the comfort of your web browser.
+        </p>
     </main>
 </template>
