@@ -1,8 +1,9 @@
-<template>
-    <main class="h-96 flex justify-center mb-8">
-        <TownHallSlider @update-townhall="updateTownHall" />
+<template v-for="i in 2">
+    <main class="h-[70vh] max-h-[600px] flex justify-center mb-12">
+        <TownHallSlider />
         <div class="flex flex-col">
-            <BaseMap :town="currTownHall" />
+            <BaseMap />
+            <BaseItems />
         </div>
     </main>
 </template>
@@ -10,16 +11,5 @@
 <script setup lang="ts">
 import TownHallSlider from '@/components/TownHallSlider.vue'
 import BaseMap from '@/components/BaseMap.vue'
-import { ref } from 'vue'
-
-const currTownHall = ref()
-
-/**
- * Update townhall selection (re-renders map)
- * @param town New townhall object
- */
-function updateTownHall(town: object): void {
-    console.log(town)
-    currTownHall.value = town
-}
+import BaseItems from '@/components/BaseItems.vue'
 </script>

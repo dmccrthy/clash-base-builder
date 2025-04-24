@@ -9,7 +9,7 @@
             :key="town.level"
             :class="[
                 'flex flex-col items-center my-4 p-4 rounded-2xl hover:cursor-pointer hover:bg-[var(--main)]',
-                { selected: town.level === currTownHall },
+                { 'bg-[var(--main)]': town.level === selected.townhall.level },
             ]"
             :id="'townhall-' + town.level"
             @click="selectTownHall(town.level)"
@@ -25,11 +25,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
+import { useTownHallStore } from '@/stores/TownHall'
 import Data from '@/assets/data.json'
 
-const currTownHall = ref(1)
-const emit = defineEmits(['update-townhall'])
+const selected = useTownHallStore()
 
 // On pageload set default townhall if present
 onMounted(() => {
@@ -43,16 +43,7 @@ onMounted(() => {
  * @param town Townhall object to set
  */
 function selectTownHall(town: number): void {
-    currTownHall.value = town
+    selected.setTownHall(town)
     localStorage.setItem('town-hall', `${town}`)
-
-    // Here we emit the JSON object for the townhall for use on the map
-    emit('update-townhall', Data[town - 1])
 }
 </script>
-
-<style lang="css">
-.selected {
-    background-color: var(--main);
-}
-</style>

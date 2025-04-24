@@ -8,5 +8,4 @@
 import { RouterView } from 'vue-router'
 import PageHeader from './components/core/PageHeader.vue'
 import PageFooter from './components/core/PageFooter.vue'
-import './assets/main.css'
 </script>
